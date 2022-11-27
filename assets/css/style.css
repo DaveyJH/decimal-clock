@@ -1,0 +1,91 @@
+:root {
+  --hand-height: .7rem;
+  --hour-hand-height: calc(var(--hand-height) * 1.2);
+  --minute-hand-height: calc(var(--hand-height) * .9);
+  --second-hand-height: calc(var(--hand-height) * .7);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display:flex;
+  flex: 1;
+  align-items:center;
+  background: radial-gradient(
+    circle at 50%,
+    #a2aaaa,
+    #e84610 75%,
+    #01ddffaa);
+}
+
+.clock {
+  width: 85vmin;
+  height: 85vmin;
+  border: .4rem solid #101010;
+  border-radius:50%;
+  margin:50px auto;
+  position: relative;
+  box-shadow:
+        0 0 0 .25rem #00000010,
+        inset 0 0 0 .2rem #efefef,
+        inset 0 0 .6rem black,
+        0 0 .6rem #00000035;
+  background: radial-gradient(
+    #022069,
+    #1877b6 8%,
+    #01ddff 30%,
+    #01ddff 42.5%,
+    #022069 85%,
+    #01ddff 95%,
+    #022069);
+}
+
+.hand {
+  background: #202020;
+  position: absolute;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  border-radius: 45%;
+  box-shadow: 2px 2px 3px #e84610;
+}
+
+.hour-hand {
+  height: var(--hour-hand-height);
+  top: calc(50% - var(--hour-hand-height) / 2);
+  width: 35%;
+  left: 15%;
+  transition: all .5s cubic-bezier(0, 1.59, 0.4, 0.77);
+}
+.minute-hand {
+  height: var(--minute-hand-height);
+  top: calc(50% - var(--minute-hand-height) / 2);
+  width: 45%;
+  left: 5%;
+}
+.second-hand {
+  height: var(--second-hand-height);
+  top: calc(50% - var(--second-hand-height) / 2);
+  width: 25%;
+  left: 25%;
+}
+
+.centre {
+  height: 1rem;
+  width: 1rem;
+  background-color: #202020;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 3px 3px #e84610;
+  border-radius: 50%;
+}
