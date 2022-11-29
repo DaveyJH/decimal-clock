@@ -6,7 +6,7 @@ const OFFSET = new Date().getTimezoneOffset() * 60000;
  * @param {Number} t local ms past epoch to be converted to decimal time
  * @returns number of decimal seconds past midnight
  */
-const convertToDecimal = (t) => ((t + OFFSET) % 86400000) / 864;
+const convertToDecimal = (t) => ((t - OFFSET) % 86400000) / 864;
 
 const setClock = (providedTime) => {
   // `+ 90` is used to ensure midnight is straight up
